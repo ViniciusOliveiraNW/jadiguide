@@ -116,6 +116,9 @@ function doSearch(query) {
   query = query.trim();
   if (!query) {
     clearSearch();
+    const activeNav = document.querySelector('.nav-item.active');
+    const sec = activeNav?.dataset.section || 'informativos';
+    showSection(sec);
     return;
   }
 
