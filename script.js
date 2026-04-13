@@ -132,7 +132,7 @@ function doSearch(query) {
     : '';
 
   if (!matches.length) {
-    searchResults.innerHTML = `<div class="no-results"><p>Nenhum resultado encontrado para "<strong>${query}</strong>".</p><p>Tente termos diferentes ou navegue pelas secoes do menu.</p></div>`;
+    searchResults.innerHTML = `<div class="no-results"><p>Nenhum resultado encontrado para "<strong>${query}</strong>".</p><p>Tente termos diferentes ou navegue pelas seções do menu.</p></div>`;
     return;
   }
 
