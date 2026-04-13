@@ -191,14 +191,14 @@
       </ul>
       <div class="callout callout-warn">
         <strong>Atencão</strong>
-        Apesar de poderosa, a IA não tem consciencia nem emocões — ela apenas repete padroes com base nos dados que aprendeu. Sempre revise as respostas geradas, principalmente em assuntos sensiveis ou profissionais.
+        Apesar de poderosa, a IA não tem consciencia nem emocões — ela apenas repete padrões com base nos dados que aprendeu. Sempre revise as respostas geradas, principalmente em assuntos sensiveis ou profissionais.
       </div>
     </div>
 
     <!-- PROMPT -->
     <div class="content-block" id="o-que-e-prompt">
       <h2>O que e Prompt</h2>
-      <p>Um prompt e o comando ou instrucão que você da para uma inteligencia artificial para ela entender o que você quer que ela faca. Em outras palavras, e a mensagem que inicia a conversa e guia o comportamento da IA.</p>
+      <p>Um prompt e o comando ou instrucão que você da para uma inteligencia artificial para ela entender o que você quer que ela faça. Em outras palavras, e a mensagem que inicia a conversa e guia o comportamento da IA.</p>
       <div class="quote-block">Prompt = instrucão que diz a IA o que fazer, como responder e de que forma agir.</div>
       <p>Um prompt pode ser simples, como uma pergunta, ou complexo, com varias regras, exemplos e objetivos — como os usados para criar atendentes virtuais ou fluxos de atendimento.</p>
       <h3>Exemplos de prompts</h3>
@@ -219,12 +219,12 @@
     <!-- TOKENS -->
     <div class="content-block" id="tokens">
       <h2>Como são calculados os Tokens</h2>
-      <p>Tokens são as partes em que uma frase e dividida — incluindo palavras e pontuações — cada vez que você envia algo para a IA. E a contagem desses tokens que gera o custo de uso.</p>
+      <p>Tokens são as partes em que uma frase e dividida — incluindo palavras e pontuações — cada vez que você envia algo para a IA. É a contagem desses tokens que gera o custo de uso.</p>
       <div class="callout callout-info">
         <strong>Exemplo pratico</strong>
         A frase "Como vai você?" e dividida em 4 tokens: "Como" | "vai" | "você" | "?"
       </div>
-      <p>O preco dos modelos e calculado por milhão de tokens. Isso significa que, mesmo que você utilize apenas 500 mil tokens, o valor sera proporcional.</p>
+      <p>O preço dos modelos e calculado por milhão de tokens. Isso significa que, mesmo que você utilize apenas 500 mil tokens, o valor sera proporcional.</p>
       <h3>Tabela de custos — GPT-4o-Mini</h3>
       <div class="table-wrap">
         <table>
@@ -236,14 +236,12 @@
           </tbody>
         </table>
       </div>
-      <h3>Relação com a Base de Conhecimento</h3>
-      <p>Quanto mais informações a base de conhecimento tem, mais tokens serão consumidos — e maior o custo de operação. Por isso, o ideal e equilibrar a base: incluir tudo que for realmente relevante e essencial, evitando textos desnecessariamente longos.</p>
     </div>
 
     <!-- AGENTES -->
     <div class="content-block" id="agentes">
       <h2>O que são Agentes de IA</h2>
-      <p>Um agente de IA e como um "funcionario virtual" que usa inteligencia artificial para executar tarefas automaticamente. Ele pode responder clientes, buscar informações, fazer orcamentos, enviar mensagens e muito mais — tudo sem precisar de intervenção humana o tempo todo.</p>
+      <p>Um agente de IA e como um "funcionario virtual" que usa inteligencia artificial para executar tarefas automaticamente. Ele pode responder clientes, buscar informações, fazer orçamentos, enviar mensagens e muito mais — tudo sem precisar de intervenção humana o tempo todo.</p>
       <h3>Modulos Jadi disponiveis</h3>
       <div class="card-grid" style="margin-top:.75rem">
         <div class="info-card" style="cursor:default">
@@ -262,7 +260,7 @@
       <h3>O que a Jadi realiza</h3>
       <ul>
         <li><strong>Recebimento e envio de audios</strong> (somente Jadi Completa) com 7 tons de voz configuráveis.</li>
-        <li><strong>Integracões via API</strong> com consulta ao setor de integracões.</li>
+        <li><strong>Integracões via API</strong> sendo necessário consulta ao setor de integracões.</li>
         <li><strong>Transcricão de audios</strong> para aumentar a eficiencia dos atendimentos.</li>
         <li><strong>Formulacão de propostas</strong> conforme configuracão do prompt.</li>
         <li><strong>Reformulacão e correcão de textos</strong> via Copilot.</li>
@@ -284,7 +282,6 @@
         <li><div><strong>Seja especifico:</strong> Defina claramente o perfil do agente, o tom de voz e os objetivos.</div></li>
         <li><div><strong>Inclua exemplos:</strong> Mostre como o agente deve se comportar com exemplos de perguntas e respostas ideais.</div></li>
         <li><div><strong>Estabeleca regras:</strong> Liste o que o agente pode e não pode fazer.</div></li>
-        <li><div><strong>Teste e itere:</strong> Sempre valide o comportamento do agente com simulações antes de ativar em produção.</div></li>
       </ol>
       <h3>Para a base de conhecimento</h3>
       <ul>
@@ -308,10 +305,10 @@
     <div class="section-hero">
       <div class="hero-tag">Base de Conhecimento</div>
       <h1>Templates prontos para uso</h1>
-      <p>Estruturas reutilizaveis para configurar sua base de conhecimento em diferentes cenarios e segmentos.</p>
+      <p>Estruturas reutilizaveis para configurar sua base de conhecimento em diferentes cenarios e segmentos. Quanto melhor estruturado, mais eficiente será o desempenho do agente.</p>
     </div>
 
-    <div class="kb-card" data-searchable data-title="Template — Loja de Materiais de Construção" data-content="loja materiais construção produto servico preco horario atendimento localização politica troca entrega duvidas">
+    <div class="kb-card" data-searchable data-title="Template — Loja de Materiais de Construção" data-content="loja materiais construção produto servico preço horario atendimento localização politica troca entrega duvidas">
       <div class="kb-header">
         <div class="kb-icon">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -332,6 +329,7 @@
       <div class="code-block"># INFORMAÇÕES DA EMPRESA
 Nome: [Nome da Empresa]
 Segmento: Materiais de Construção
+Historia: Resumo informativo
 Localização: [Cidade/Estado]
 Horario: Segunda a sexta das 8h as 18h | Sabado das 8h as 12h
 
@@ -349,12 +347,6 @@ Area de entrega: [Cidades/regioes atendidas]
 Taxa de entrega: [Gratuita acima de R$X / Variavel por distancia]
 Troca/devolução: [Prazo e condições]
 
-# CANAIS DE CONTATO
-WhatsApp: [Numero]
-Telefone: [Numero]
-Email: [Email]
-Site: [URL]
-
 # PERGUNTAS FREQUENTES
 P: Vocês fazem entrega?
 R: Sim, realizamos entregas em [area]. Consulte taxa por CEP.
@@ -366,7 +358,7 @@ P: Vocês emitem nota fiscal?
 R: Sim, emitimos nota fiscal para todos os pedidos.</div>
     </div>
 
-    <div class="kb-card" data-searchable data-title="Template — Clinica de Estetica" data-content="clinica estetica procedimento agendamento consulta preco servico tratamento beleza">
+    <div class="kb-card" data-searchable data-title="Template — Clinica de Estetica" data-content="clinica estetica procedimento agendamento consulta preço servico tratamento beleza">
       <div class="kb-header">
         <div class="kb-icon">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -387,13 +379,14 @@ R: Sim, emitimos nota fiscal para todos os pedidos.</div>
       <div class="code-block"># INFORMAÇÕES DA CLINICA
 Nome: [Nome da Clinica]
 Especialidade: Estetica e Bem-estar
+Historia: Resumo informativo
 Endereco: [Endereco completo]
 Horario: [Horarios de funcionamento]
 
 # SERVICOS OFERECIDOS
-- [Procedimento 1]: R$ [preco] — Duração: [X min]
-- [Procedimento 2]: R$ [preco] — Duração: [X min]
-- [Procedimento 3]: R$ [preco] — Duração: [X min]
+- [Procedimento 1]: R$ [preço] — Duração: [X min]
+- [Procedimento 2]: R$ [preço] — Duração: [X min]
+- [Procedimento 3]: R$ [preço] — Duração: [X min]
 
 # AGENDAMENTO
 Como agendar: Via WhatsApp, site ou telefone
@@ -435,6 +428,7 @@ R: [Resposta personalizada]</div>
 Nome: [Nome da Empresa]
 CRECI: [Numero do CRECI]
 Atuação: [Cidade/Região]
+Historia: Resumo informativo
 
 # TIPOS DE IMOVEIS TRABALHADOS
 - Residencial: Apartamentos, casas, sobrados
@@ -448,7 +442,7 @@ Atuação: [Cidade/Região]
 - Avaliaçôes e laudos
 
 # PROCESSO DE ATENDIMENTO
-1. Coleta de perfil: Tipo, localização, faixa de preco, finalidade
+1. Coleta de perfil: Tipo, localização, faixa de preço, finalidade
 2. Seleção de opções e envio de listagem
 3. Agendamento de visitas
 4. Negociação e proposta
@@ -525,13 +519,13 @@ Portabilidade de dados: [Disponivel por X dias apos cancelamento]
   <section class="section" id="s-prompts">
     <div class="section-hero">
       <div class="hero-tag">Prompts-chave</div>
-      <h1>Prompts otimizados para cada contexto</h1>
+      <h1>Prompts otimizados para cada contexto, e de utiliade</h1>
       <p>Coleção de prompts prontos para uso em diferentes cenarios: vendas, suporte, qualificação e mais.</p>
     </div>
 
     <div id="prompt-list">
 
-      <div class="prompt-card" data-searchable data-title="Atendimento Receptivo — Vendas" data-content="atendimento vendas recepção cliente lead qualificação produto preco orcamento">
+      <div class="prompt-card" data-searchable data-title="Atendimento Receptivo — Vendas" data-content="atendimento vendas recepção cliente lead qualificação produto preço orçamento">
         <div class="prompt-header">
           <div class="prompt-icon">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -563,7 +557,7 @@ FLUXO DE ATENDIMENTO:
 
 REGRAS:
 - Seja sempre cordial, objetivo e profissional.
-- Não invente precos ou informações fora da base de conhecimento.
+- Não invente preços ou informações fora da base de conhecimento.
 - Se não souber a resposta, diga que ira verificar com um especialista.
 - Não envie mais de 2 perguntas por mensagem.
 
@@ -640,7 +634,7 @@ OBJETIVO:
 Identificar o perfil, necessidade e nivel de interesse do lead antes de encaminhar para o time de vendas.
 
 CRITERIOS DE QUALIFICAÇÃO (BANT):
-- Budget (Orcamento): O lead tem condições de contratar?
+- Budget (Orçamento): O lead tem condições de contratar?
 - Authority (Autoridade): E o tomador de decisão?
 - Need (Necessidade): Tem uma necessidade clara que nosso produto resolve?
 - Timeline (Tempo): Quando pretende contratar?
@@ -754,6 +748,272 @@ MENSAGEM DE CONFIRMAÇÃO:
 
 TOM DE VOZ: Acolhedor, organizado e preciso.</div>
       </div>
+
+         <div id="prompt-list">
+
+      <div class="prompt-card" data-searchable data-title="Atendimento Receptivo — Vendas" data-content="atendimento vendas recepção cliente lead qualificação produto preço orçamento">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+            </svg>
+            </svg>
+          </div>
+          <div class="prompt-meta">
+            <div class="prompt-title">Busca de dados na base de conhecimento</div>
+            <div class="prompt-context">
+              <span class="tag">Consulta</span>
+              <span class="tag">Conhecimento</span>
+              <span class="tag">Procura</span>
+            </div>
+          </div>
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiar</button>
+        </div>
+        <div class="prompt-text">### Importante
+ 
+Sempre busque na base de conhecimento as informações necessárias quando:  
+1. Cliente perguntar informações sobre a empresa  
+2. Cliente quer saber de preços  
+3. Cliente quer saber sobre serviços oferecidos</div>
+      </div>
+      
+         <div id="prompt-list">
+
+      <div class="prompt-card" data-searchable data-title="Atendimento Receptivo — Vendas" data-content="atendimento vendas recepção cliente lead qualificação produto preço orçamento">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+            </svg>
+            </svg>
+          </div>
+          <div class="prompt-meta">
+            <div class="prompt-title">Regras de uso de audio / Voz</div>
+            <div class="prompt-context">
+              <span class="tag">Audio</span>
+              <span class="tag">Geral</span>
+              <span class="tag">Atendimento</span>
+            </div>
+          </div>
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiar</button>
+        </div>
+        <div class="prompt-text">Este agente deve decidir automaticamente quando utilizar resposta em áudio, seguindo rigorosamente as regras abaixo:
+1. SE o usuário declarar explicitamente ou implicitamente que NÃO SABE LER
+   (exemplos: "não sei ler", "sou analfabeto", "não consigo ler", "prefiro ouvir"),
+   ENTÃO:
+   - Ativar a ferramenta de resposta em áudio.
+   - Responder exclusivamente por áudio.
+   - Utilizar linguagem simples, clara e objetiva.
+   - Não exigir leitura do usuário em nenhuma etapa.
+2. SE o usuário solicitar o envio de um áudio
+   (exemplos: "me manda um áudio", "pode falar?", "prefiro áudio", "responde em áudio"),
+   ENTÃO:
+   - Ativar imediatamente a ferramenta de resposta em áudio.
+   - Responder por áudio.
+3. SE o input do usuário for um áudio
+   ENTÃO:
+   - A resposta da IA DEVE sempre ser em áudio.
+   - Manter o mesmo idioma detectado no áudio do usuário.
+4. FORA dessas condições:
+   - Responder normalmente em texto.
+IMPORTANTE:
+- Nunca perguntar ao usuário se ele prefere áudio ou texto.
+- A decisão de uso da ferramenta de voz deve ser automática.
+- Quando o áudio estiver ativo, não retornar texto junto da resposta.
+
+ESTADO DE ATENDIMENTO – MODO DE RESPOSTA
+
+A Lia deve manter um estado lógico de “modo de resposta” durante toda a conversa.
+
+Definição de estado:
+- MODO_AUDIO = verdadeiro
+- MODO_TEXTO = verdadeiro
+
+Regras de ativação do MODO_AUDIO:
+- Se o cliente enviar um áudio em qualquer momento
+- OU se solicitar resposta em áudio
+- OU se declarar que não sabe ou não consegue ler
+
+Quando MODO_AUDIO for ativado:
+- Ele permanece ATIVO até o final do atendimento
+- A Lia DEVE responder exclusivamente em áudio
+- Mesmo que mensagens seguintes venham transcritas, curtas, fragmentadas ou em texto
+- A Lia NÃO deve alternar de volta para texto em nenhuma hipótese
+
+Regra absoluta:
+- Uma vez ativado o MODO_AUDIO, nunca retornar para texto</div>
+      </div>
+
+             <div id="prompt-list">
+
+      <div class="prompt-card" data-searchable data-title="Atendimento Receptivo — Vendas" data-content="atendimento vendas recepção cliente lead qualificação produto preço orçamento">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+            </svg>
+            </svg>
+          </div>
+          <div class="prompt-meta">
+            <div class="prompt-title">Chamada de integração</div>
+            <div class="prompt-context">
+              <span class="tag">Configuração</span>
+              <span class="tag">Integração</span>
+              <span class="tag">Atendimento</span>
+            </div>
+          </div>
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiar</button>
+        </div>
+        <div class="prompt-text">- Chame a função sempre que o cliente solicitar a consultoria de um boleto, pendências de pagamento ou segunda via relacionado ao Asaas.
+Ao enviar os dados para integração considere todos os números, incluindo os zeros iniciais.
+
+#REGRAS PARA CHAMAR A FUNÇÃO
+1. Execute a função somente após coletar o CPF/CNPJ do cliente.
+2. Colete a informação independentemente se o cliente já informou anteriormente.
+     - O cliente pode ter outros CPF para consulta que não seja o dele.</div>
+      </div>
+                   <div id="prompt-list">
+
+      <div class="prompt-card" data-searchable data-title="Atendimento Receptivo — Vendas" data-content="atendimento vendas recepção cliente lead qualificação produto preço orçamento">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+            </svg>
+            </svg>
+          </div>
+          <div class="prompt-meta">
+            <div class="prompt-title">Transferência para o suporte</div>
+            <div class="prompt-context">
+              <span class="tag">Transferencia</span>
+              <span class="tag">Suporte</span>
+              <span class="tag">Configuração</span>
+            </div>
+          </div>
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiar</button>
+        </div>
+        <div class="prompt-text">Realize a transferência do atendimento para o departamento de suporte quando a necessidade do cliente for técnica, operacional ou relacionada a problemas no uso da plataforma, nas seguintes situações:
+
+## Quando usar (somente nesses casos):
+### Problemas técnicos
+- erro
+- bug
+- falha
+- sistema não funciona
+- travamento
+
+### Restrições
+- banimento
+- bloqueio
+- número restrito
+
+### Dificuldade de uso
+- “não consigo fazer”
+- “deu erro ao tentar”
+Importante:  
+→ Cliente já está tentando usar e falhou
+
+### Ambiente automatizado
+- “Digite 1, 2…”
+- “Escolha uma opção”
+- Outro chatbot
+
+### Pedido técnico
+- Solicitação de ligação para resolver problema técnico
+## Ação:
+- Transferir diretamente
+</div>
+      </div>
+                   <div id="prompt-list">
+
+      <div class="prompt-card" data-searchable data-title="Atendimento Receptivo — Vendas" data-content="atendimento vendas recepção cliente lead qualificação produto preço orçamento">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+            </svg>
+            </svg>
+          </div>
+          <div class="prompt-meta">
+            <div class="prompt-title">Transferencia para o Financeiro</div>
+            <div class="prompt-context">
+              <span class="tag">Transferencia</span>
+              <span class="tag">Financeiro</span>
+              <span class="tag">Configuração</span>
+            </div>
+          </div>
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiar</button>
+        </div>
+        <div class="prompt-text">Somente transfira para o departamento financeiro caso o cliente se encaixe nas diretrizes abaixo:
+
+## Quando usar:
+- Cliente menciona:
+    - boleto
+    - fatura
+    - pagamento
+    - atraso
+    - cobrança
+- Cliente solicita diretamente o financeiro
+
+## Ação:
+- Confirmar antes de transferir</div>
+      </div>
+                       <div id="prompt-list">
+
+      <div class="prompt-card" data-searchable data-title="Atendimento Receptivo — Vendas" data-content="atendimento vendas recepção cliente lead qualificação produto preço orçamento">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+            </svg>
+            </svg>
+          </div>
+          <div class="prompt-meta">
+            <div class="prompt-title">Transferencia para o Vendas</div>
+            <div class="prompt-context">
+              <span class="tag">Transferencia</span>
+              <span class="tag">Vendas</span>
+              <span class="tag">Configuração</span>
+            </div>
+          </div>
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiar</button>
+        </div>
+        <div class="prompt-text">## Quando usar:
+### Comercial direto
+- Preço, planos, custos
+- Contratação
+- Proposta / orçamento
+### Funcionalidades (IMPORTANTE)
+- Perguntas sobre o que a plataforma faz
+- Possibilidades de uso
+- Automações
+- Integrações
+
+Exemplos:
+- “Consigo automatizar mensagens?”
+- “Dá pra integrar com CRM?”
+- “Tem como enviar campanhas?”
+Isso é VENDAS, não suporte
+
+### Interesse / Descoberta
+- “Como funciona?”
+- “Quero entender melhor”
+- “Vale a pena?”
+
+### Materiais
+- PDF
+- Catálogo
+- Apresentação
+- Demonstração
+
+### Pedido direto
+- “Quero falar com vendas”
+- “Me passa um consultor”
+- “Comercial”
+
+## Ação:
+- Confirmar antes de transferir</div>
+      </div>
     </div>
   </section>
 
@@ -837,7 +1097,7 @@ TOM DE VOZ: Acolhedor, organizado e preciso.</div>
         </div>
       </div>
 
-      <div class="faq-item" data-searchable data-title="O que e token e como ele impacta o custo?" data-content="token custo preco openai gpt consumo calculo fatura cobranca">
+      <div class="faq-item" data-searchable data-title="O que e token e como ele impacta o custo?" data-content="token custo preço openai gpt consumo calculo fatura cobranca">
         <div class="faq-q" onclick="toggleFaq(this.parentElement)">
           O que e token e como ele impacta o custo?
           <span class="faq-arrow">
