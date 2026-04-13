@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jadi Hub — Central de Conhecimento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<body>
+
+<!-- OVERLAY -->
+<div id="overlay"></div>
+
+<!-- HEADER -->
+<header id="header">
+  <button id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="logo">
+    <div class="logo-mark">JH</div>
+    <span>Jadi Hub</span>
+  </div>
+  <div id="header-search">
+    <span class="search-icon">
+      <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="9" cy="9" r="7"/><path d="M20 20l-4.35-4.35"/>
+      </svg>
+    </span>
+    <input type="text" id="search-input" placeholder="Pesquisar na base de conhecimento, prompts e FAQ..." autocomplete="off" />
+    <button id="search-clear" aria-label="Limpar">&times;</button>
+  </div>
+  <div class="header-actions">
+    <button id="theme-toggle" aria-label="Alternar tema">
+      <svg id="icon-sun" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg id="icon-moon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<nav id="sidebar" aria-label="Navegação principal">
+  <div class="nav-section">
+    <div class="nav-group-label">Principal</div>
+    <button class="nav-item active" data-section="informativos">
+      <span class="nav-icon">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </span>
+      Informativos
+    </button>
+    <div class="nav-sub">
+      <button class="nav-item" data-section="informativos" data-sub="o-que-e-ia">O que é Inteligencia Artificial</button>
+      <button class="nav-item" data-section="informativos" data-sub="o-que-e-prompt">O que é Prompt</button>
+      <button class="nav-item" data-section="informativos" data-sub="tokens">Como são calculados os Tokens</button>
+      <button class="nav-item" data-section="informativos" data-sub="agentes">O que são Agentes de IA</button>
+      <button class="nav-item" data-section="informativos" data-sub="boas-praticas">Boas Praticas de Uso</button>
+    </div>
+  </div>
+  <div class="nav-divider"></div>
+  <div class="nav-section">
+    <div class="nav-group-label">Recursos</div>
+    <button class="nav-item" data-section="base-conhecimento">
+      <span class="nav-icon">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+        </svg>
+      </span>
+      Base de Conhecimento
+    </button>
+    <button class="nav-item" data-section="prompts">
+      <span class="nav-icon">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+        </svg>
+      </span>
+      Prompts-chave
+    </button>
+  </div>
+  <div class="nav-divider"></div>
+  <div class="nav-section">
+    <div class="nav-group-label">Suporte</div>
+    <button class="nav-item" data-section="faq">
+      <span class="nav-icon">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+      </span>
+      Duvidas Frequentes
+    </button>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main id="main">
+
+  <!-- SEARCH RESULTS -->
+  <div id="search-results-section">
+    <h2 class="section-title">Resultados da pesquisa</h2>
+    <p class="section-subtitle" id="search-count"></p>
+    <div id="search-results"></div>
+  </div>
+
+  <!-- ══ INFORMATIVOS ══════════════════════════════════ -->
+  <section class="section active" id="s-informativos">
+    <div class="section-hero">
+      <div class="hero-tag">Informativos</div>
+      <h1>Central de Aprendizado sobre IA</h1>
+      <p>Entenda os conceitos fundamentais da Inteligencia Artificial e aprenda a usar a Jadi de forma estrategica.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="info-card" onclick="scrollToSub('o-que-e-ia')">
+        <div class="card-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div class="card-title">O que é Inteligencia Artificial</div>
+        <div class="card-desc">Conceito, funcionamento e tipos de IA existentes no mercado.</div>
+      </div>
+      <div class="info-card" onclick="scrollToSub('o-que-e-prompt')">
+        <div class="card-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <div class="card-title">O que é Prompt</div>
+        <div class="card-desc">Como instruir a IA corretamente para obter os melhores resultados.</div>
+      </div>
+      <div class="info-card" onclick="scrollToSub('tokens')">
+        <div class="card-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div class="card-title">Como são calculados os Tokens</div>
+        <div class="card-desc">Entenda o que são tokens e como eles impactam o custo de uso da IA.</div>
+      </div>
+      <div class="info-card" onclick="scrollToSub('agentes')">
+        <div class="card-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20v-1a4 4 0 014-4h8a4 4 0 014 4v1"/>
+          </svg>
+        </div>
+        <div class="card-title">O que são Agentes de IA</div>
+        <div class="card-desc">Como funcionam os agentes virtuais e o que a Jadi pode realizar.</div>
+      </div>
+    </div>
+
+    <!-- O QUE E IA -->
+    <div class="content-block" id="o-que-e-ia">
+      <h2>O que é Inteligencia Artificial</h2>
+      <p>Inteligencia Artificial (IA) é a tecnologia que permite que maquinas simulem a inteligencia humana. Ou seja, elas conseguem aprender, raciocinar, resolver problemas, reconhecer padrões e até criar conteudos como textos, imagens, musicas e videos.</p>
+      <p>A IA funciona com base em dados. Ela "aprende" observando exemplos, assim como nos. Por exemplo: se ela analisa milhoes de fotos de gatos, comeca a reconhecer automaticamente o que e um gato em novas imagens.</p>
+      <h3>Como a IA funciona</h3>
+      <p>A IA e construida a partir de modelos matematicos e algoritmos que analisam grandes quantidades de informacão. Esses modelos são treinados com dados para aprender como as pessoas se comunicam e pensam.</p>
+      <ol class="step-list">
+        <li><div><strong>Recebe informacões</strong> — como uma pergunta ou comando do usuario.</div></li>
+        <li><div><strong>Interpreta</strong> o que foi pedido com base no seu treinamento.</div></li>
+        <li><div><strong>Gera uma resposta</strong> baseada em tudo o que aprendeu anteriormente.</div></li>
+      </ol>
+      <h3>Tipos de Inteligencia Artificial</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tipo</th><th>Descrição</th><th>Exemplos</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge badge-blue">IA Fraca</span></td><td>Faz tarefas especificas, e a mais comum hoje</td><td>Siri, Alexa, ChatGPT</td></tr>
+            <tr><td><span class="badge badge-blue">IA Geral</span></td><td>Em desenvolvimento; capaz de aprender qualquer coisa</td><td>Ainda não existe</td></tr>
+            <tr><td><span class="badge badge-blue">IA Superinteligente</span></td><td>Conceito teorico que superaria a inteligencia humana</td><td>Conceito futuro</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Modelos de IA mais conhecidos</h3>
+      <ul>
+        <li><strong>GPT (ChatGPT, Copilot):</strong> focado em linguagem e texto.</li>
+        <li><strong>Gemini (Google):</strong> integracão com pesquisa e produtividade.</li>
+        <li><strong>Claude (Anthropic):</strong> IA conversacional com foco em contexto longo.</li>
+        <li><strong>Midjourney e DALL-E:</strong> criacão de imagens.</li>
+        <li><strong>Suno e Udio:</strong> criacão de musicas e sons.</li>
+      </ul>
+      <div class="callout callout-warn">
+        <strong>Atencão</strong>
+        Apesar de poderosa, a IA não tem consciencia nem emocoes — ela apenas repete padroes com base nos dados que aprendeu. Sempre revise as respostas geradas, principalmente em assuntos sensiveis ou profissionais.
+      </div>
+    </div>
+
+    <!-- PROMPT -->
+    <div class="content-block" id="o-que-e-prompt">
+      <h2>O que e Prompt</h2>
+      <p>Um prompt e o comando ou instrucão que voce da para uma inteligencia artificial para ela entender o que voce quer que ela faca. Em outras palavras, e a mensagem que inicia a conversa e guia o comportamento da IA.</p>
+      <div class="quote-block">Prompt = instrucão que diz a IA o que fazer, como responder e de que forma agir.</div>
+      <p>Um prompt pode ser simples, como uma pergunta, ou complexo, com varias regras, exemplos e objetivos — como os usados para criar atendentes virtuais ou fluxos de atendimento.</p>
+      <h3>Exemplos de prompts</h3>
+      <div class="code-label">Exemplo simples</div>
+      <div class="code-block">Explique o que e energia solar de forma facil de entender.</div>
+      <div class="code-label">Exemplo criativo</div>
+      <div class="code-block">Escreva uma legenda divertida para uma foto de loja de roupas femininas com tom jovem e empolgante.</div>
+      <div class="code-label">Exemplo profissional</div>
+      <div class="code-block">Aja como um atendente de loja de materiais de construção. Cumprimente o cliente, colete nome e cidade, e direcione para o departamento correto apos tirar as duvidas.</div>
+      <div class="code-label">Exemplo tecnico</div>
+      <div class="code-block">Crie um texto de boas-vindas para um chatbot de marmoraria, usando tom profissional e amigavel, apresentando os produtos e coletando informacoes do cliente.</div>
+      <div class="callout callout-info">
+        <strong>Dica</strong>
+        Quanto mais detalhado e especifico for o prompt, mais precisa e relevante sera a resposta da IA. Inclua o contexto, o tom de voz esperado e os objetivos que a IA deve atingir.
+      </div>
+    </div>
+
+    <!-- TOKENS -->
+    <div class="content-block" id="tokens">
+      <h2>Como são calculados os Tokens</h2>
+      <p>Tokens são as partes em que uma frase e dividida — incluindo palavras e pontuacoes — cada vez que voce envia algo para a IA. E a contagem desses tokens que gera o custo de uso.</p>
+      <div class="callout callout-info">
+        <strong>Exemplo pratico</strong>
+        A frase "Como vai voce?" e dividida em 4 tokens: "Como" | "vai" | "voce" | "?"
+      </div>
+      <p>O preco dos modelos e calculado por milhão de tokens. Isso significa que, mesmo que voce utilize apenas 500 mil tokens, o valor sera proporcional.</p>
+      <h3>Tabela de custos — GPT-4o-Mini</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tipo</th><th>Custo por 1M tokens</th><th>Descricão</th></tr></thead>
+          <tbody>
+            <tr><td>Entrada</td><td>US$ 0,60</td><td>Mensagens enviadas para a IA</td></tr>
+            <tr><td>Cache</td><td>US$ 0,30</td><td>Armazenamento temporario de contexto</td></tr>
+            <tr><td>Saida</td><td>US$ 2,40</td><td>Respostas geradas pela IA</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Relação com a Base de Conhecimento</h3>
+      <p>Quanto mais informacoes a base de conhecimento tem, mais tokens serão consumidos — e maior o custo de operação. Por isso, o ideal e equilibrar a base: incluir tudo que for realmente relevante e essencial, evitando textos desnecessariamente longos.</p>
+    </div>
+
+    <!-- AGENTES -->
+    <div class="content-block" id="agentes">
+      <h2>O que são Agentes de IA</h2>
+      <p>Um agente de IA e como um "funcionario virtual" que usa inteligencia artificial para executar tarefas automaticamente. Ele pode responder clientes, buscar informacoes, fazer orcamentos, enviar mensagens e muito mais — tudo sem precisar de intervenção humana o tempo todo.</p>
+      <h3>Modulos Jadi disponiveis</h3>
+      <div class="card-grid" style="margin-top:.75rem">
+        <div class="info-card" style="cursor:default">
+          <div class="card-title">Jadi Basica</div>
+          <div class="card-desc">Automação dos atendimentos receptivos de forma personalizada. O agente entende e responde textos encaminhados pelos leads ate a transferencia para um humano.</div>
+        </div>
+        <div class="info-card" style="cursor:default">
+          <div class="card-title">Jadi Copilot</div>
+          <div class="card-desc">Assistente para os atendentes que responde duvidas sobre o atendimento, auxilia na formulação de propostas e em duvidas gerais.</div>
+        </div>
+        <div class="info-card" style="cursor:default">
+          <div class="card-title">Jadi Completa</div>
+          <div class="card-desc">Engloba a Basica e o Copilot, com beneficio extra: interpretacão, envio e transcricão de audios. Aceita tambem imagens e PDFs.</div>
+        </div>
+      </div>
+      <h3>O que a Jadi realiza</h3>
+      <ul>
+        <li><strong>Recebimento e envio de audios</strong> (somente Jadi Completa) com 7 tons de voz configuráveis.</li>
+        <li><strong>Integracões via API</strong> com consulta ao setor de integracões.</li>
+        <li><strong>Transcricão de audios</strong> para aumentar a eficiencia dos atendimentos.</li>
+        <li><strong>Formulacão de propostas</strong> conforme configuracão do prompt.</li>
+        <li><strong>Reformulacão e correcão de textos</strong> via Copilot.</li>
+        <li><strong>Direcionamento de atendimentos</strong> para o setor correto.</li>
+        <li><strong>Atribuicão de tags</strong> conforme prompts pre-construidos.</li>
+      </ul>
+      <h3>O que a Jadi não realiza</h3>
+      <div class="callout callout-warn">
+        <strong>Limitacães atuais do agente</strong>
+        A Jadi não analisa planilhas ou arquivos Docx, não realiza follow-ups automaticos, não posiciona cards nas esteiras do CRM, não possui restrição de horario automatica, não interage em atendimentos pendentes e não opera em sites — apenas WhatsApp, Instagram, Facebook e Telegram.
+      </div>
+    </div>
+
+    <!-- BOAS PRATICAS -->
+    <div class="content-block" id="boas-praticas">
+      <h2>Boas Praticas de Uso</h2>
+      <h3>Para prompts eficientes</h3>
+      <ol class="step-list">
+        <li><div><strong>Seja especifico:</strong> Defina claramente o perfil do agente, o tom de voz e os objetivos.</div></li>
+        <li><div><strong>Inclua exemplos:</strong> Mostre como o agente deve se comportar com exemplos de perguntas e respostas ideais.</div></li>
+        <li><div><strong>Estabeleca regras:</strong> Liste o que o agente pode e não pode fazer.</div></li>
+        <li><div><strong>Teste e itere:</strong> Sempre valide o comportamento do agente com simulacoes antes de ativar em produção.</div></li>
+      </ol>
+      <h3>Para a base de conhecimento</h3>
+      <ul>
+        <li>Mantenha as informacoes atualizadas regularmente.</li>
+        <li>Use linguagem simples e objetiva para facilitar a interpretção da IA.</li>
+        <li>Evite informacoes redundantes que aumentem o consumo de tokens desnecessariamente.</li>
+        <li>Organize por categorias logicas (produtos, processos, FAQ, contatos).</li>
+      </ul>
+      <h3>Cuidados gerais</h3>
+      <ul>
+        <li>Nunca compartilhe dados pessoais ou sigilosos com a IA.</li>
+        <li>Verifique fontes antes de publicar informacoes geradas por IA.</li>
+        <li>Use a tecnologia como apoio, não como substituto total de pessoas.</li>
+        <li>Revise sempre as respostas, principalmente em assuntos sensiveis ou profissionais.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ BASE DE CONHECIMENTO ══════════════════════════ -->
+  <section class="section" id="s-base-conhecimento">
+    <div class="section-hero">
+      <div class="hero-tag">Base de Conhecimento</div>
+      <h1>Templates prontos para uso</h1>
+      <p>Estruturas reutilizaveis para configurar sua base de conhecimento em diferentes cenarios e segmentos.</p>
+    </div>
+
+    <div class="kb-card" data-searchable data-title="Template — Loja de Materiais de Construcao" data-content="loja materiais construcao produto servico preco horario atendimento localizacao politica troca entrega duvidas">
+      <div class="kb-header">
+        <div class="kb-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div>
+          <div class="kb-title">Loja de Materiais de Construção</div>
+          <div class="kb-sub">Template completo para varejo de construção</div>
+        </div>
+      </div>
+      <div class="kb-tags">
+        <span class="tag">Varejo</span>
+        <span class="tag">Construção</span>
+        <span class="tag">Produtos</span>
+        <span class="tag">Entrega</span>
+      </div>
+      <div class="code-block"># INFORMACOES DA EMPRESA
+Nome: [Nome da Empresa]
+Segmento: Materiais de Construção
+Localização: [Cidade/Estado]
+Horario: Segunda a sexta das 8h as 18h | Sabado das 8h as 12h
+
+# PRODUTOS E CATEGORIAS
+- Cimento, areia e brita
+- Tintas e revestimentos
+- Ferragens e fixadores
+- Eletrica e hidraulica
+- Acabamentos e pisos
+
+# POLITICA COMERCIAL
+Formas de pagamento: [Pix, cartão de credito/debito, dinheiro]
+Prazo de entrega: [X dias uteis]
+Area de entrega: [Cidades/regioes atendidas]
+Taxa de entrega: [Gratuita acima de R$X / Variavel por distancia]
+Troca/devolução: [Prazo e condicoes]
+
+# CANAIS DE CONTATO
+WhatsApp: [Numero]
+Telefone: [Numero]
+Email: [Email]
+Site: [URL]
+
+# PERGUNTAS FREQUENTES
+P: Voces fazem entrega?
+R: Sim, realizamos entregas em [area]. Consulte taxa por CEP.
+
+P: Qual o prazo minimo de pedido?
+R: Pedidos ate as 14h saem no mesmo dia (sujeito a estoque).
+
+P: Voces emitem nota fiscal?
+R: Sim, emitimos nota fiscal para todos os pedidos.</div>
+    </div>
+
+    <div class="kb-card" data-searchable data-title="Template — Clinica de Estetica" data-content="clinica estetica procedimento agendamento consulta preco servico tratamento beleza">
+      <div class="kb-header">
+        <div class="kb-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="kb-title">Clinica de Estetica</div>
+          <div class="kb-sub">Template para clinicas e espacos de bem-estar</div>
+        </div>
+      </div>
+      <div class="kb-tags">
+        <span class="tag">Saude</span>
+        <span class="tag">Beleza</span>
+        <span class="tag">Agendamento</span>
+        <span class="tag">Consulta</span>
+      </div>
+      <div class="code-block"># INFORMACOES DA CLINICA
+Nome: [Nome da Clinica]
+Especialidade: Estetica e Bem-estar
+Endereco: [Endereco completo]
+Horario: [Horarios de funcionamento]
+
+# SERVICOS OFERECIDOS
+- [Procedimento 1]: R$ [preco] — Duração: [X min]
+- [Procedimento 2]: R$ [preco] — Duração: [X min]
+- [Procedimento 3]: R$ [preco] — Duração: [X min]
+
+# AGENDAMENTO
+Como agendar: Via WhatsApp, site ou telefone
+Antecedencia minima: [X dias]
+Cancelamento: Avise com ate [X horas] de antecedencia
+Reagendamento: Permitido uma vez sem custo
+
+# PROFISSIONAIS
+[Nome do Profissional] — Especialidade: [Especialidade]
+Registro: [CRN/CRM se aplicavel]
+
+# PREPAROS NECESSARIOS
+[Procedimento X]: [Orientacoes de preparo]
+
+# PERGUNTAS FREQUENTES
+P: Preciso agendar consulta antes do procedimento?
+R: [Resposta personalizada]</div>
+    </div>
+
+    <div class="kb-card" data-searchable data-title="Template — Imobiliaria" data-content="imovel compra venda aluguel locacao apartamento casa financiamento corretor visita">
+      <div class="kb-header">
+        <div class="kb-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="kb-title">Imobiliaria</div>
+          <div class="kb-sub">Template para corretoras e imobiliarias</div>
+        </div>
+      </div>
+      <div class="kb-tags">
+        <span class="tag">Imoveis</span>
+        <span class="tag">Venda</span>
+        <span class="tag">Locação</span>
+        <span class="tag">Financiamento</span>
+      </div>
+      <div class="code-block"># INFORMACOES DA IMOBILIARIA
+Nome: [Nome da Empresa]
+CRECI: [Numero do CRECI]
+Atuação: [Cidade/Região]
+
+# TIPOS DE IMOVEIS TRABALHADOS
+- Residencial: Apartamentos, casas, sobrados
+- Comercial: Salas, lojas, galpoes
+- Terrenos e lotes
+
+# SERVICOS
+- Compra e venda de imoveis
+- Locação residencial e comercial
+- Administração de imoveis
+- Avaliacoes e laudos
+
+# PROCESSO DE ATENDIMENTO
+1. Coleta de perfil: Tipo, localização, faixa de preco, finalidade
+2. Seleção de opcoes e envio de listagem
+3. Agendamento de visitas
+4. Negociação e proposta
+5. Documentação e registro
+
+# DOCUMENTOS NECESSARIOS (Locação)
+- RG e CPF
+- Comprovante de renda (3x ultimo salario)
+- Comprovante de residencia atual
+- [Fiador ou seguro-fianca, conforme caso]
+
+# PERGUNTAS FREQUENTES
+P: Qual o prazo para locação?
+R: [Resposta personalizada]</div>
+    </div>
+
+    <div class="kb-card" data-searchable data-title="Template — SaaS / Tecnologia" data-content="software tecnologia saas plano plataforma suporte assinatura cancelamento integracao api">
+      <div class="kb-header">
+        <div class="kb-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="kb-title">Software / SaaS</div>
+          <div class="kb-sub">Template para empresas de tecnologia e plataformas digitais</div>
+        </div>
+      </div>
+      <div class="kb-tags">
+        <span class="tag">Tecnologia</span>
+        <span class="tag">SaaS</span>
+        <span class="tag">Suporte</span>
+        <span class="tag">Planos</span>
+      </div>
+      <div class="code-block"># SOBRE A PLATAFORMA
+Nome: [Nome do Software]
+Descrição: [O que o software faz]
+Versão atual: [X.X]
+
+# PLANOS DISPONIVEIS
+- Plano Basico: R$ [X]/mes — [Recursos inclusos]
+- Plano Intermediario: R$ [X]/mes — [Recursos inclusos]
+- Plano Avancado: R$ [X]/mes — [Recursos inclusos]
+- Plano Enterprise: Sob consulta
+
+# RECURSOS PRINCIPAIS
+- [Funcionalidade 1]
+- [Funcionalidade 2]
+- [Funcionalidade 3]
+
+# SUPORTE TECNICO
+Canal: [WhatsApp/Email/Chat]
+Horario: [Horario de suporte]
+SLA resposta: [Tempo de resposta]
+
+# PROCESSO DE CONTRATACÃO
+1. Escolha do plano
+2. Cadastro na plataforma
+3. Configuração inicial (onboarding)
+4. Treinamento da equipe
+5. Ativação em produção
+
+# POLITICA DE CANCELAMENTO
+Prazo: [X dias de aviso previo]
+Reembolso: [Politica de reembolso]
+Portabilidade de dados: [Disponivel por X dias apos cancelamento]
+
+# INTEGRACOES DISPONIVEIS
+[Lista de sistemas integraveis]</div>
+    </div>
+  </section>
+
+  <!-- ══ PROMPTS ════════════════════════════════════════ -->
+  <section class="section" id="s-prompts">
+    <div class="section-hero">
+      <div class="hero-tag">Prompts-chave</div>
+      <h1>Prompts otimizados para cada contexto</h1>
+      <p>Coleção de prompts prontos para uso em diferentes cenarios: vendas, suporte, qualificação e mais.</p>
+    </div>
+
+    <div id="prompt-list">
+
+      <div class="prompt-card" data-searchable data-title="Atendimento Receptivo — Vendas" data-content="atendimento vendas recepcao cliente lead qualificacao produto preco orcamento">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+          </div>
+          <div class="prompt-meta">
+            <div class="prompt-title">Atendimento Receptivo — Vendas</div>
+            <div class="prompt-context">
+              <span class="tag">Vendas</span>
+              <span class="tag">Recepção</span>
+              <span class="tag">Qualificação</span>
+            </div>
+          </div>
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiar</button>
+        </div>
+        <div class="prompt-text">Voce e um atendente virtual especialista em vendas da [Nome da Empresa].
+
+OBJETIVO:
+Recepcionar o cliente, entender sua necessidade, apresentar as solucoes disponiveis e coletar as informacoes necessarias para encaminhar ao time comercial.
+
+FLUXO DE ATENDIMENTO:
+1. Cumprimente o cliente pelo nome assim que possivel.
+2. Pergunte em que voce pode ajudar hoje.
+3. Identifique o produto ou servico de interesse.
+4. Apresente as opcoes relevantes com base no interesse do cliente.
+5. Colete: nome, cidade/estado, telefone de contato.
+6. Encaminhe para o atendente comercial responsavel.
+
+REGRAS:
+- Seja sempre cordial, objetivo e profissional.
+- Nao invente precos ou informacoes fora da base de conhecimento.
+- Se nao souber a resposta, diga que ira verificar com um especialista.
+- Nao envie mais de 2 perguntas por mensagem.
+
+TOM DE VOZ: Profissional, acolhedor e direto.</div>
+      </div>
+
+      <div class="prompt-card" data-searchable data-title="Suporte Tecnico — Resolucao de Problemas" data-content="suporte tecnico problema bug erro resolucao ticket chamado atendimento pos-venda">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <div class="prompt-meta">
+            <div class="prompt-title">Suporte Tecnico</div>
+            <div class="prompt-context">
+              <span class="tag">Suporte</span>
+              <span class="tag">Tecnico</span>
+              <span class="tag">Pos-venda</span>
+            </div>
+          </div>
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiar</button>
+        </div>
+        <div class="prompt-text">Voce e um assistente de suporte tecnico da [Nome da Empresa].
+
+OBJETIVO:
+Identificar e ajudar a resolver problemas tecnicos reportados pelos clientes de forma rapida, clara e eficiente.
+
+FLUXO DE ATENDIMENTO:
+1. Cumprimente o cliente e confirme o nome.
+2. Peca para descrever o problema com detalhes.
+3. Pergunte quando o problema comecou e se houve alguma mudanca recente.
+4. Tente solucionar com base na base de conhecimento.
+5. Caso nao resolva, abra um chamado e informe o numero de protocolo.
+6. Encaminhe para um tecnico especializado se necessario.
+
+COLETA DE INFORMACOES:
+- Nome completo
+- Email cadastrado
+- Descricao do problema
+- Versao do sistema/produto (se aplicavel)
+- Capturas de tela (se possivel)
+
+REGRAS:
+- Nunca culpe o cliente pelo problema.
+- Seja empatico e paciente.
+- Confirme com o cliente se o problema foi resolvido antes de encerrar.
+- Se o problema for critico, escale imediatamente.
+
+TOM DE VOZ: Tecnico, empatico e tranquilizador.</div>
+      </div>
+
+      <div class="prompt-card" data-searchable data-title="Qualificacao de Lead — Pre-vendas" data-content="lead qualificacao pre-venda potencial cliente perfil interesse necessidade mql sql">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <div class="prompt-meta">
+            <div class="prompt-title">Qualificacao de Lead — Pre-vendas</div>
+            <div class="prompt-context">
+              <span class="tag">Qualificacao</span>
+              <span class="tag">Pre-vendas</span>
+              <span class="tag">Lead</span>
+            </div>
+          </div>
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiar</button>
+        </div>
+        <div class="prompt-text">Voce e um pre-atendente qualificador de leads da [Nome da Empresa].
+
+OBJETIVO:
+Identificar o perfil, necessidade e nivel de interesse do lead antes de encaminhar para o time de vendas.
+
+CRITERIOS DE QUALIFICACAO (BANT):
+- Budget (Orcamento): O lead tem condicoes de contratar?
+- Authority (Autoridade): E o tomador de decisao?
+- Need (Necessidade): Tem uma necessidade clara que nosso produto resolve?
+- Timeline (Tempo): Quando pretende contratar?
+
+FLUXO:
+1. Recepcione o lead com entusiasmo.
+2. Pergunte sobre o cenario atual dele (dor/problema).
+3. Entenda o tamanho da empresa e numero de colaboradores.
+4. Pergunte se ja usa alguma solucao similar.
+5. Descubra o prazo e urgencia.
+6. Classifique: Lead Quente / Morno / Frio e encaminhe conforme regra.
+
+REGRAS:
+- Nao mencione o conceito BANT para o cliente.
+- Faca perguntas abertas e naturais.
+- Limite de 1 pergunta por mensagem.
+- Seja consultivo, nao seja agressivo.
+
+TOM DE VOZ: Consultivo, amigavel e curioso.</div>
+      </div>
+
+      <div class="prompt-card" data-searchable data-title="Cobranca e Financeiro — Regularizacao" data-content="cobranca financeiro inadimplente divida regularizacao pagamento renegociacao boleto pix">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
+            </svg>
+          </div>
+          <div class="prompt-meta">
+            <div class="prompt-title">Cobranca e Financeiro</div>
+            <div class="prompt-context">
+              <span class="tag">Financeiro</span>
+              <span class="tag">Cobranca</span>
+              <span class="tag">Renegociacao</span>
+            </div>
+          </div>
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiar</button>
+        </div>
+        <div class="prompt-text">Voce e um assistente do setor financeiro da [Nome da Empresa].
+
+OBJETIVO:
+Notificar clientes sobre pendencias financeiras e facilitar a regularizacao de forma respeitosa e eficaz.
+
+FLUXO:
+1. Identifique o cliente pelo nome.
+2. Informe de forma educada sobre a pendencia existente.
+3. Apresente as opcoes de regularizacao disponiveis.
+4. Pergunte a melhor forma de pagamento.
+5. Envie o link ou instrucoes de pagamento.
+6. Confirme recebimento e encerre com positividade.
+
+REGRAS IMPORTANTES:
+- NUNCA use linguagem agressiva ou ameacadora.
+- NUNCA exponha dados financeiros de terceiros.
+- Sempre oforca alternativas de parcelamento se possivel.
+- Mantenha o respeito independente do historico do cliente.
+- Nao repita mais de 3 tentativas de contato automatico.
+
+FORMAS DE PAGAMENTO ACEITAS:
+- Pix: [Chave Pix]
+- Boleto: Gerar via [sistema]
+- Cartao: [Link de pagamento]
+
+TOM DE VOZ: Respeitoso, firme e solucionador.</div>
+      </div>
+
+      <div class="prompt-card" data-searchable data-title="Agendamento — Clinicas e Servicos" data-content="agendamento clinica servico consulta horario disponibilidade confirmacao cancelamento remarcacao">
+        <div class="prompt-header">
+          <div class="prompt-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="prompt-meta">
+            <div class="prompt-title">Agendamento — Clinicas e Servicos</div>
+            <div class="prompt-context">
+              <span class="tag">Agendamento</span>
+              <span class="tag">Clinica</span>
+              <span class="tag">Saude</span>
+            </div>
+          </div>
+          <button class="prompt-copy" onclick="copyPrompt(this)">Copiar</button>
+        </div>
+        <div class="prompt-text">Voce e um assistente de agendamento da [Nome da Clinica/Empresa].
+
+OBJETIVO:
+Auxiliar clientes no agendamento, confirmacao, cancelamento e remarcacao de consultas ou servicos.
+
+INFORMACOES NECESSARIAS PARA AGENDAMENTO:
+- Nome completo do cliente
+- Tipo de servico desejado
+- Preferencia de data e horario
+- Telefone para confirmacao
+
+FLUXO:
+1. Recepcione o cliente.
+2. Pergunte qual servico deseja agendar.
+3. Informe os horarios disponiveis (consulte a agenda).
+4. Confirme os dados do cliente.
+5. Confirme o agendamento com data, hora e local.
+6. Envie instrucoes de preparo se necessario.
+7. Informe a politica de cancelamento.
+
+POLITICA DE AGENDAMENTO:
+- Cancelamento: Informar com [X horas] de antecedencia.
+- Tolerancia de atraso: [X minutos].
+- Remarcacao: [Regras de remarcacao].
+
+MENSAGEM DE CONFIRMACAO:
+"Seu agendamento foi confirmado para [data] as [hora]. Caso precise cancelar ou remarcar, entre em contato com [X horas] de antecedencia."
+
+TOM DE VOZ: Acolhedor, organizado e preciso.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ════════════════════════════════════════════ -->
+  <section class="section" id="s-faq">
+    <div class="section-hero">
+      <div class="hero-tag">Duvidas Frequentes</div>
+      <h1>FAQ — Perguntas e Respostas</h1>
+      <p>Respostas rapidas para as principais duvidas sobre a plataforma Jadi e o uso de IA no atendimento.</p>
+    </div>
+
+    <div id="faq-list">
+
+      <div class="faq-item" data-searchable data-title="O que e a Jadi e quais sao seus modulos?" data-content="jadi modulo basica copilot completa plano contratacao">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          O que e a Jadi e quais sao seus modulos?
+          <span class="faq-arrow">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </div>
+        <div class="faq-a">
+          <p>A Jadi e o agente de IA da plataforma MegaZap, disponivel em tres modulos: Jadi Basica (automacao de atendimentos receptivos), Jadi Copilot (assistente para atendentes) e Jadi Completa (combinacao das duas com suporte a audio, imagem e PDF). Cada modulo e contratado separadamente.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-searchable data-title="A Jadi consegue enviar e receber audios?" data-content="audio voz envio recebimento transcricao jadi completa">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          A Jadi consegue enviar e receber audios?
+          <span class="faq-arrow">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </div>
+        <div class="faq-a">
+          <p>Sim, mas somente no modulo Jadi Completa. Nesse modulo, o agente pode enviar e receber audios, transcrever o conteudo dos audios e ate escolher entre 7 tons de voz diferentes para personalizar a fala do agente.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-searchable data-title="A Jadi pode realizar follow-ups automaticos?" data-content="follow-up automatico mensagem ausencia cliente inativo">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          A Jadi pode realizar follow-ups automaticos?
+          <span class="faq-arrow">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </div>
+        <div class="faq-a">
+          <p>Nao. A Jadi nao realiza follow-ups automaticos. Isso significa que ela nao consegue enviar uma mensagem apos um periodo de inatividade do cliente. Esse recurso ainda nao esta disponivel na plataforma.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-searchable data-title="Em quais canais a Jadi funciona?" data-content="canal whatsapp instagram facebook telegram site redes sociais">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          Em quais canais a Jadi funciona?
+          <span class="faq-arrow">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </div>
+        <div class="faq-a">
+          <p>Atualmente a Jadi opera nos seguintes canais: WhatsApp, Instagram, Facebook e Telegram. A Jadi nao interage em sites ou outros canais que nao estejam nesta lista.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-searchable data-title="A Jadi consegue mover cards no CRM automaticamente?" data-content="crm card esteira kanban posicionamento automatico fluxo trabalho">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          A Jadi consegue mover cards no CRM automaticamente?
+          <span class="faq-arrow">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </div>
+        <div class="faq-a">
+          <p>Nao. A Jadi nao realiza o posicionamento automatico de cards nas esteiras do CRM. Todos os cards sao posicionados na primeira esteira do Fluxo de trabalho, e o movimento entre esteiras precisa ser feito manualmente.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-searchable data-title="O que e token e como ele impacta o custo?" data-content="token custo preco openai gpt consumo calculo fatura cobranca">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          O que e token e como ele impacta o custo?
+          <span class="faq-arrow">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </div>
+        <div class="faq-a">
+          <p>Tokens sao as unidades em que o texto e dividido antes de ser processado pela IA. Cada palavra ou pontuacao corresponde aproximadamente a um token. O custo de uso da IA e calculado com base no numero de tokens consumidos — tanto na entrada (o que voce envia) quanto na saida (o que a IA responde). Quanto maior a base de conhecimento e mais longa a conversa, mais tokens sao usados.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-searchable data-title="A Jadi pode analisar planilhas ou documentos Word?" data-content="planilha excel docx word arquivo analise leitura documento">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          A Jadi pode analisar planilhas ou documentos Word?
+          <span class="faq-arrow">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </div>
+        <div class="faq-a">
+          <p>Nao. A Jadi nao consegue interpretar arquivos como planilhas (Excel) ou documentos Word (.docx). Os formatos suportados sao: texto, imagem, PDF e audio (este ultimo somente no modulo Jadi Completa).</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-searchable data-title="Posso configurar um horario para o agente funcionar?" data-content="horario agendamento automatico funcionamento restricao horario trabalho">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          Posso configurar um horario especifico para o agente funcionar?
+          <span class="faq-arrow">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </div>
+        <div class="faq-a">
+          <p>Nao ha uma configuracao automatica de horario de funcionamento para o agente. Caso queira que ele opere somente em determinados periodos, e necessario desassociar e associar o agente manualmente. Isso e uma limitacao atual da plataforma.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-searchable data-title="O que e base de conhecimento e como organizar?" data-content="base conhecimento organizar estrutura informacao empresa produto servico faq horario">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          O que e a base de conhecimento e como devo organiza-la?
+          <span class="faq-arrow">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </div>
+        <div class="faq-a">
+          <p>A base de conhecimento e o conjunto de informacoes que a IA usa para responder os clientes. Ela deve conter informacoes institucionais da empresa, descricao de produtos e servicos, politicas, horarios e perguntas frequentes. Quanto mais completa e organizada, melhor sera o desempenho do agente. Recomendamos usar linguagem simples, objetiva e evitar informacoes redundantes para nao aumentar o consumo de tokens desnecessariamente.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-searchable data-title="A Jadi responde em atendimentos pendentes?" data-content="pendente ativo atendente humano ausencia interacao resolucao duvida">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          A Jadi interage em atendimentos que ja estao pendentes com um atendente?
+          <span class="faq-arrow">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </div>
+        <div class="faq-a">
+          <p>Nao. A partir do momento em que o atendimento e direcionado para os pendentes, a Jadi nao interagira alem da mensagem de ausencia configurada. Atendimentos que ja estao com um atendente humano nao recebem respostas automaticas da IA.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
