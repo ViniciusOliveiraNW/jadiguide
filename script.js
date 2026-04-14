@@ -3,7 +3,8 @@ const sections = {
   informativos: 's-informativos',
   'base-conhecimento': 's-base-conhecimento',
   prompts: 's-prompts',
-  faq: 's-faq'
+  faq: 's-faq',
+  configuracao: 's-configuracao'
 };
 
 // ── THEME ────────────────────────────────────────────────
@@ -25,14 +26,18 @@ setTheme(saved ? saved === 'dark' : prefersDark);
 themeBtn.addEventListener('click', () => setTheme(html.dataset.theme !== 'dark'));
 
 // ── NAV ──────────────────────────────────────────────────
-function showSection(id) {
+function showSection(id, activeButton) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   const target = document.getElementById(sections[id] || id);
   if (target) target.classList.add('active');
 
-  document.querySelectorAll('.nav-item').forEach(b => {
-    b.classList.toggle('active', b.dataset.section === id);
-  });
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+  if (activeButton) {
+    activeButton.classList.add('active');
+  } else {
+    const defaultButton = document.querySelector(`.nav-item[data-section="${id}"]:not([data-sub])`);
+    if (defaultButton) defaultButton.classList.add('active');
+  }
 
   clearSearch();
   document.getElementById('search-results-section').classList.remove('active');
@@ -42,13 +47,16 @@ document.querySelectorAll('.nav-item[data-section]').forEach(btn => {
   btn.addEventListener('click', () => {
     const sec = btn.dataset.section;
     const sub = btn.dataset.sub;
-    showSection(sec);
-    if (sub) {
-      setTimeout(() => {
+    showSection(sec, btn);
+    setTimeout(() => {
+      if (sub) {
         const el = document.getElementById(sub);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 80);
-    }
+      } else {
+        const main = document.getElementById('main');
+        if (main) main.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 150);
     closeSidebar();
   });
 });
@@ -89,7 +97,8 @@ function collectSearchData() {
     const sectionName = {
       's-base-conhecimento': 'Base de Conhecimento',
       's-prompts': 'Prompts-chave',
-      's-faq': 'Duvidas Frequentes'
+      's-faq': 'Duvidas Frequentes',
+      's-configuracao': 'Configuracao do Agente'
     }[sectionId] || 'Informativos';
 
     items.push({
@@ -220,3 +229,15 @@ function copyPrompt(btn) {
     setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2000);
   });
 }
+
+// ── BACK TO TOP ──────────────────────────────────────────
+const backToTop = document.getElementById('back-to-top');
+const mainEl = document.getElementById('main');
+
+mainEl.addEventListener('scroll', () => {
+  backToTop.classList.toggle('visible', mainEl.scrollTop > 300);
+});
+
+backToTop.addEventListener('click', () => {
+  mainEl.scrollTo({ top: 0, behavior: 'smooth' });
+});
