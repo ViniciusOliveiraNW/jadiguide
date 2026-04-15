@@ -1,4 +1,17 @@
-/* ── TOKENS ─────────────────────────────────────────── */
+/* ── SEARCH HIGHLIGHT ───────────────────────────────────── */
+@keyframes search-pulse {
+  0%   { box-shadow: 0 0 0 0px var(--accent); background-color: var(--accent-soft); }
+  40%  { box-shadow: 0 0 0 5px transparent; background-color: var(--accent-soft); }
+  100% { box-shadow: 0 0 0 0px transparent; background-color: transparent; }
+}
+
+.search-highlight {
+  animation: search-pulse 2.5s ease forwards;
+  border-radius: var(--radius) !important;
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px;
+}
+
   :root {
     --blue-950: #03071e;
     --blue-900: #0a1628;

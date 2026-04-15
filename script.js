@@ -91,7 +91,13 @@ const searchCount = document.getElementById('search-count');
 
 function collectSearchData() {
   const items = [];
+  let autoIdCounter = 0;
   document.querySelectorAll('[data-searchable]').forEach(el => {
+    // Garante que todo elemento pesquisável tenha um id
+    if (!el.id) {
+      el.id = 'searchable-auto-' + (autoIdCounter++);
+    }
+
     const sectionEl = el.closest('.section');
     const sectionId = sectionEl ? sectionEl.id : '';
     const sectionName = {
@@ -160,17 +166,20 @@ function doSearch(query) {
 function goToResult(sectionId, elId) {
   const sectionKey = Object.entries(sections).find(([, v]) => v === sectionId)?.[0];
   if (sectionKey) showSection(sectionKey);
+  clearSearch();
   if (elId) {
+    // Aguarda a seção ficar visível antes de rolar e destacar
     setTimeout(() => {
       const el = document.getElementById(elId);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        el.style.outline = '2px solid var(--accent)';
-        setTimeout(() => el.style.outline = '', 2000);
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Remove destaque anterior se houver
+        document.querySelectorAll('.search-highlight').forEach(e => e.classList.remove('search-highlight'));
+        el.classList.add('search-highlight');
+        setTimeout(() => el.classList.remove('search-highlight'), 2500);
       }
-    }, 100);
+    }, 150);
   }
-  clearSearch();
 }
 
 function clearSearch() {
