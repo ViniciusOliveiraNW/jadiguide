@@ -111,6 +111,19 @@
       <button class="nav-item" data-section="configuracao" data-sub="cfg-ausencia">Mensagem de Ausência</button>
       <button class="nav-item" data-section="configuracao" data-sub="cfg-base">Base de Conhecimento</button>
     </div>
+    <button class="nav-item" data-section="funcionalidades">
+      <span class="nav-icon">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v6M14 17.5h6"/>
+        </svg>
+      </span>
+      Funcionalidades
+    </button>
+    <div class="nav-sub">
+      <button class="nav-item" data-section="funcionalidades" data-sub="func-o-que-e">O que são Funcionalidades</button>
+      <button class="nav-item" data-section="funcionalidades" data-sub="func-criar">Como criar uma Funcionalidade</button>
+      <button class="nav-item" data-section="funcionalidades" data-sub="func-agrupamentos">Agrupamentos</button>
+    </div>
   </div>
   <div class="nav-divider"></div>
   <div class="nav-section">
@@ -1705,6 +1718,200 @@ Isso é VENDAS, não suporte
     </div>
 
   </section>
+  <!-- ══ FUNCIONALIDADES ══════════════════════════════════ -->
+  <section class="section" id="s-funcionalidades">
+    <div class="section-hero">
+      <div class="hero-tag">Plataforma</div>
+      <h1>Funcionalidades</h1>
+      <p>Automatize prompts repetitivos no assistente COPILOT — traduções, correções e cálculos com um clique, sem redigitar o mesmo texto toda vez.</p>
+    </div>
+
+    <!-- O QUE SÃO FUNCIONALIDADES -->
+    <div class="content-block cfg-block" id="func-o-que-e" data-searchable data-title="Funcionalidades — O que são" data-content="funcionalidades copilot automacao prompts repetitivos correcao traducao calculos atendente departamento">
+      <div class="cfg-block-header">
+        <div class="cfg-block-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v6M14 17.5h6"/>
+          </svg>
+        </div>
+        <div>
+          <h2>O que são Funcionalidades</h2>
+          <div class="cfg-block-sub">Atalhos inteligentes para o assistente COPILOT</div>
+        </div>
+      </div>
+      <p>O campo <strong>Gestão de Funcionalidades</strong> é um meio de automatizar prompts para uso no assistente COPILOT. Dessa forma, sem a necessidade de sempre digitar o mesmo texto em ações repetitivas como: Correção de texto, tradução ou cálculos simples.</p>
+      <p style="margin-top:.75rem">Em <strong>Funcionalidades</strong> é possível criar ou verificar as funcionalidades padrão que já existem na plataforma e foram criadas pela equipe.</p>
+
+      <div class="cfg-two-col" style="margin-top:1.25rem">
+        <div class="cfg-option-card">
+          <div class="cfg-option-title">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:inline;vertical-align:middle;margin-right:4px"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Exemplos de uso
+          </div>
+          <p>Correção ortográfica, tradução de idioma, resumo de texto, cálculo de valores, formatação de resposta.</p>
+        </div>
+        <div class="cfg-option-card">
+          <div class="cfg-option-title">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:inline;vertical-align:middle;margin-right:4px"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            Quem pode usar
+          </div>
+          <p>Atendentes vinculados ao departamento configurado na funcionalidade.</p>
+        </div>
+      </div>
+
+      <div class="callout callout-info" style="margin-top:1rem">
+        <strong>Atenção</strong>
+        É obrigatória a atribuição do departamento para que os atendentes possam utilizar a funcionalidade. Isso é feito clicando nos 3 pontinhos ao lado da funcionalidade → <strong>"Vincular departamento"</strong>.
+      </div>
+    </div>
+
+    <!-- COMO CRIAR -->
+    <div class="content-block cfg-block" id="func-criar" data-searchable data-title="Funcionalidades — Como criar" data-content="criar funcionalidade nome descricao instrucao departamento vincular tres pontinhos">
+      <div class="cfg-block-header">
+        <div class="cfg-block-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
+        </div>
+        <div>
+          <h2>Como criar uma Funcionalidade</h2>
+          <div class="cfg-block-sub">Defina nome, descrição e instrução do prompt automático</div>
+        </div>
+      </div>
+      <p>Para criar uma nova funcionalidade, clique no <strong>"+"</strong> e preencha os campos abaixo:</p>
+
+      <div class="table-wrap" style="margin-top:1rem">
+        <table>
+          <thead><tr><th>Campo</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Nome</strong></td>
+              <td>Identificação da funcionalidade na lista</td>
+              <td>Traduzir texto</td>
+            </tr>
+            <tr>
+              <td><strong>Descrição</strong></td>
+              <td>Objetivo resumido do que a funcionalidade faz</td>
+              <td>Traduzir texto encaminhado independente do idioma</td>
+            </tr>
+            <tr>
+              <td><strong>Instrução</strong></td>
+              <td>Prompt enviado automaticamente ao COPILOT</td>
+              <td>Traduza o texto para o português, independente do idioma</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:1.25rem">Exemplo completo</h3>
+      <div class="code-label">Nome</div>
+      <div class="code-block" style="margin-bottom:.5rem">Traduzir texto</div>
+      <div class="code-label">Descrição</div>
+      <div class="code-block" style="margin-bottom:.5rem">Objetivo: Traduzir texto encaminhado independente do idioma</div>
+      <div class="code-label">Instrução</div>
+      <div class="code-block">Traduza o texto para o português, independente do idioma</div>
+
+      <h3 style="margin-top:1.25rem">Vinculando ao departamento</h3>
+      <ol class="step-list">
+        <li><div>Com a funcionalidade criada, localize-a na lista.</div></li>
+        <li><div>Clique nos <strong>3 pontinhos (⋯)</strong> ao lado da funcionalidade.</div></li>
+        <li><div>Selecione <strong>"Vincular departamento"</strong>.</div></li>
+        <li><div>Escolha o(s) departamento(s) que terão acesso.</div></li>
+      </ol>
+
+      <div class="callout callout-warn">
+        <strong>Obrigatório</strong>
+        Sem a vinculação ao departamento, os atendentes não conseguirão visualizar nem utilizar a funcionalidade no COPILOT.
+      </div>
+    </div>
+
+    <!-- AGRUPAMENTOS -->
+    <div class="content-block cfg-block" id="func-agrupamentos" data-searchable data-title="Funcionalidades — Agrupamentos" data-content="agrupamentos menu funcionalidade icone imagem origem acao mensagem chat area digitacao selecao texto atendente cliente">
+      <div class="cfg-block-header">
+        <div class="cfg-block-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </div>
+        <div>
+          <h2>Agrupamentos</h2>
+          <div class="cfg-block-sub">Organize funcionalidades em menus ou acesso direto</div>
+        </div>
+      </div>
+      <p>Em <strong>Agrupamentos</strong> é definido se a funcionalidade criada anteriormente será atribuída a um <strong>Menu</strong> ou será uma <strong>Funcionalidade</strong> de acesso direto.</p>
+
+      <div class="cfg-diff-box" style="margin-top:1rem">
+        <div class="cfg-diff-item">
+          <span class="cfg-diff-label">Menu</span>
+          <p>Agrupa várias funcionalidades sob um item de navegação. Útil para organizar ações por categoria.</p>
+        </div>
+        <div class="cfg-diff-sep">vs</div>
+        <div class="cfg-diff-item">
+          <span class="cfg-diff-label">Funcionalidade</span>
+          <p>Acesso direto a uma única funcionalidade, sem necessidade de menu pai.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:1.5rem">Criando um Menu</h3>
+      <p>Clique no <strong>"+"</strong> e selecione <strong>Menu</strong>. Defina:</p>
+      <div class="table-wrap" style="margin-top:.75rem">
+        <table>
+          <thead><tr><th>Campo</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Nome</strong></td><td>Título do menu</td><td>Atendimento</td></tr>
+            <tr><td><strong>Tipo</strong></td><td>Ícone ou Imagem</td><td>Ícone</td></tr>
+            <tr><td><strong>Classe do ícone / Imagem</strong></td><td>Classe CSS ou URL da imagem</td><td>fas fa-headset</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout-info" style="margin-top:.75rem">
+        <strong>Após criar o Menu</strong>
+        É necessário adicionar as Funcionalidades dentro dele. O processo é o mesmo descrito abaixo.
+      </div>
+
+      <h3 style="margin-top:1.5rem">Adicionando uma Funcionalidade (direta ou dentro de um Menu)</h3>
+      <p>Clique no <strong>"+"</strong> e selecione <strong>Funcionalidade</strong>. Defina:</p>
+      <div class="table-wrap" style="margin-top:.75rem">
+        <table>
+          <thead><tr><th>Campo</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Nome</strong></td><td>Rótulo exibido para o atendente</td><td>Traduz o texto</td></tr>
+            <tr><td><strong>Funcionalidade</strong></td><td>Funcionalidade criada previamente</td><td>Traduzir texto</td></tr>
+            <tr><td><strong>Origem da Ação</strong></td><td>De onde o texto será capturado</td><td>Ver tabela abaixo</td></tr>
+            <tr><td><strong>Tipo</strong></td><td>Ícone ou Imagem</td><td>Ícone</td></tr>
+            <tr><td><strong>Classe do ícone / Imagem</strong></td><td>Classe CSS ou URL da imagem</td><td>fas fa-language</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:1.5rem">Origens de Ação disponíveis</h3>
+      <div class="cfg-scale" style="margin-top:.75rem">
+        <div class="cfg-scale-item cfg-scale-low">
+          <div class="cfg-scale-label">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:inline;vertical-align:middle;margin-right:4px"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Mensagem do Chat
+          </div>
+          <p>Texto enviado pelo cliente ou pelo atendente na conversa.</p>
+        </div>
+        <div class="cfg-scale-item cfg-scale-mid">
+          <div class="cfg-scale-label">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:inline;vertical-align:middle;margin-right:4px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Área de Digitação
+          </div>
+          <p>Texto que o atendente está digitando no momento, antes de enviar.</p>
+        </div>
+        <div class="cfg-scale-item cfg-scale-high">
+          <div class="cfg-scale-label">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:inline;vertical-align:middle;margin-right:4px"><path d="M9 12h6M9 16h6M9 8h6M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/></svg>
+            Seleção de Texto
+          </div>
+          <p>Apenas uma parte do texto recebido ou enviado, selecionada manualmente pelo atendente.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
 </main>
 
 <button id="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">

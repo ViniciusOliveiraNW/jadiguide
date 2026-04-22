@@ -4,7 +4,8 @@ const sections = {
   'base-conhecimento': 's-base-conhecimento',
   prompts: 's-prompts',
   faq: 's-faq',
-  configuracao: 's-configuracao'
+  configuracao: 's-configuracao',
+  funcionalidades: 's-funcionalidades'
 };
 
 // ── THEME ────────────────────────────────────────────────
@@ -104,7 +105,8 @@ function collectSearchData() {
       's-base-conhecimento': 'Base de Conhecimento',
       's-prompts': 'Prompts-chave',
       's-faq': 'Duvidas Frequentes',
-      's-configuracao': 'Configuracao do Agente'
+      's-configuracao': 'Configuracao do Agente',
+      's-funcionalidades': 'Funcionalidades'
     }[sectionId] || 'Informativos';
 
     items.push({
